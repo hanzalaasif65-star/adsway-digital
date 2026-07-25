@@ -9,7 +9,7 @@ const testimonials = [
     name: "Sajjad Ali",
     company: "The Red Tree Guest House",
     review:
-      "Adsway Digital completely transformed our social media presence. Their creative strategy helped us generate more inquiries.",
+      "Adsway Digital completely transformed our social media presence. From branding to content creation.",
     result: "271+ Leads Generated",
   },
   {
