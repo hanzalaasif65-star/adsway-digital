@@ -1,91 +1,246 @@
-import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  MessageCircle,
+  Sparkles,
+} from "lucide-react";
 
 export default function CTA() {
   return (
-    <section className="relative overflow-hidden bg-[#0B0B14] py-16">
+    <section className="relative overflow-hidden bg-[#09090F] py-14 md:py-20">
+
       {/* Background */}
+
       <div className="absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-purple-600/20 blur-[110px]" />
-        <div className="absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-blue-600/10 blur-3xl animate-pulse" />
-        <div className="absolute -right-24 top-0 h-64 w-64 rounded-full bg-purple-600/10 blur-3xl animate-pulse" />
+
+        <motion.div
+          animate={{
+            scale: [1, 1.15, 1],
+            opacity: [0.15, 0.3, 0.15],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute left-1/2 top-0 h-[340px] w-[340px] -translate-x-1/2 rounded-full bg-purple-600 blur-[120px]"
+        />
+
+        <motion.div
+          animate={{
+            x: [-20, 20, -20],
+            y: [-15, 15, -15],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute -left-24 bottom-0 h-60 w-60 rounded-full bg-blue-500/20 blur-[100px]"
+        />
+
+        <motion.div
+          animate={{
+            x: [20, -20, 20],
+            y: [15, -15, 15],
+          }}
+          transition={{
+            duration: 11,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute -right-24 top-0 h-60 w-60 rounded-full bg-purple-500/20 blur-[100px]"
+        />
+
       </div>
 
       <div className="relative mx-auto max-w-4xl px-6">
-        <div className="group relative overflow-hidden rounded-[30px] border border-white/10 bg-white/5 p-10 text-center backdrop-blur-2xl transition-all duration-500 hover:border-purple-500/30">
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+          className="group relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.05] px-7 py-10 text-center backdrop-blur-3xl md:px-12"
+        >
 
           {/* Hover Glow */}
-          <div className="absolute inset-0 rounded-[30px] bg-gradient-to-r from-purple-600/0 via-purple-500/10 to-blue-500/0 opacity-0 transition duration-700 group-hover:opacity-100" />
 
-          {/* Moving Light */}
-          <div className="absolute -left-1/2 top-0 h-full w-40 rotate-12 bg-white/10 blur-xl transition-all duration-[2200ms] group-hover:left-[130%]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-purple-500/10 to-cyan-500/0 opacity-0 transition duration-700 group-hover:opacity-100" />
+
+          {/* Animated Light */}
+
+          <motion.div
+            animate={{
+              x: ["-120%", "240%"],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute top-0 h-full w-24 rotate-12 bg-white/10 blur-xl"
+          />
 
           <div className="relative">
 
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-blue-600 shadow-xl">
-              <Sparkles className="text-white" size={28} />
-            </div>
+            <motion.div
+              animate={{
+                y: [0, -6, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+              }}
+              className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-blue-600 shadow-[0_15px_40px_rgba(124,58,237,0.45)]"
+            >
+              <Sparkles
+                className="text-white"
+                size={24}
+              />
+            </motion.div>
 
-            <span className="mt-5 inline-block rounded-full border border-purple-500/20 bg-purple-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[2px] text-purple-300">
+            <span className="mt-5 inline-flex rounded-full border border-purple-500/20 bg-purple-500/10 px-4 py-2 text-[11px] font-bold uppercase tracking-[3px] text-purple-300">
               ADSWAY DIGITAL
             </span>
 
-            <h2 className="mt-6 text-4xl font-black leading-tight text-white md:text-5xl">
-              Let's Build Something
-              <span className="block bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                Amazing Together
+            <h2 className="mt-6 text-4xl font-black leading-tight text-white md:text-6xl">
+
+              Let's Build
+
+              <span className="mt-1 block bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                Something Amazing
               </span>
+
             </h2>
 
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-gray-300">
-              Ready to grow your business? We create content, run ads and build
-              marketing strategies that bring more customers and real results.
+            <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-gray-300">
+              From strategy and content creation to paid advertising,
+              we help businesses grow faster with marketing that delivers
+              real results.
             </p>
 
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-
-              <a
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+                            <motion.a
                 href="https://wa.me/923107885938"
                 target="_blank"
-                className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-4 font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+                whileHover={{
+                  y: -4,
+                  scale: 1.03,
+                }}
+                whileTap={{
+                  scale: 0.98,
+                }}
+                className="group/button relative inline-flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-r from-purple-600 via-violet-600 to-blue-600 px-7 py-4 font-bold text-white shadow-[0_15px_40px_rgba(124,58,237,0.35)] transition-all duration-300"
               >
-                Book Free Consultation
-                <ArrowRight className="ml-3" size={20} />
-              </a>
+                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-[180%] group-hover/button:translate-x-[180%] transition-transform duration-1000" />
 
-              <a
+                <span className="relative flex items-center">
+                  Book Free Consultation
+
+                  <ArrowRight
+                    size={18}
+                    className="ml-3 transition-transform duration-300 group-hover/button:translate-x-1"
+                  />
+                </span>
+              </motion.a>
+
+              <motion.a
                 href="https://wa.me/923107885938"
                 target="_blank"
-                className="inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/10 px-8 py-4 font-semibold text-white transition-all duration-300 hover:border-green-500 hover:bg-white/15"
+                whileHover={{
+                  y: -4,
+                  scale: 1.03,
+                }}
+                whileTap={{
+                  scale: 0.98,
+                }}
+                className="group/wa inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-7 py-4 font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:border-green-400/40 hover:bg-white/10"
               >
-                <MessageCircle className="mr-3 text-green-400" size={20} />
+                <MessageCircle
+                  size={19}
+                  className="mr-3 text-green-400 transition-transform duration-300 group-hover/wa:scale-110"
+                />
+
                 WhatsApp Us
-              </a>
+              </motion.a>
 
             </div>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-6 border-t border-white/10 pt-6 text-sm text-gray-300">
+            {/* Reply Badge */}
 
-              <span className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 15,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                delay: 0.25,
+              }}
+              className="mt-7 flex items-center justify-center gap-3"
+            >
+              <span className="relative flex h-3 w-3">
+
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-green-400" />
+
+              </span>
+
+              <p className="text-sm font-medium text-gray-300">
+                Usually replies within
+                <span className="ml-1 font-bold text-white">
+                  10 minutes
+                </span>
+              </p>
+
+            </motion.div>
+
+            <div className="mt-8 h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-5 text-xs font-medium text-gray-400">
+                            <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-green-400 animate-pulse" />
                 Free Strategy Call
-              </span>
+              </div>
 
-              <span className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-blue-400 animate-pulse" />
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-blue-400 animate-pulse" />
                 Fast Response
-              </span>
+              </div>
 
-              <span className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-purple-400 animate-pulse" />
                 Trusted by Growing Businesses
-              </span>
+              </div>
 
             </div>
 
           </div>
 
-        </div>
+        </motion.div>
+
       </div>
+
     </section>
   );
 }
